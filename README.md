@@ -34,7 +34,7 @@
 - VerbTalk и Negation - коррелируют
 
 ## Анализ: дескриптивная статистика
-![barplot](https://raw.githubusercontent.com/SoDipole/cxg-InTwoWords/master/barplot.png "barplot")
+![barplot](https://raw.githubusercontent.com/SoDipole/cxg-InTwoWords/master/barplot.PNG "barplot")
 ![corrplot](https://raw.githubusercontent.com/SoDipole/cxg-InTwoWords/master/corrplot.png "corrplot")
 
 ## Мультифакторный анализ
