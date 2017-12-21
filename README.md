@@ -34,16 +34,16 @@
 ## Мультифакторный анализ
 
 * дерево решений ( + случайный лес для выявления важности переменных (variable importance))  
-'''
+```
 > importance(fit_forest)
          в двух словах два слова о двумя словами одним словом MeanDecreaseAccuracy MeanDecreaseGini
 Literal      25.749453    6.263400    48.8484026     4.736283            44.795051        24.730736
 Question      8.187191    3.834931    -0.1053812    -2.928081             4.858301         2.397233
 Negation      8.398397    4.118263     6.6402473    10.678680            13.674868         6.215489
 VerbTalk     34.484909    3.742125    34.9384720    53.818682            64.196396        45.777577
-'''
+```
 ![rand_forest_importance](https://raw.githubusercontent.com/SoDipole/cxg-InTwoWords/master/rand_forest_importance.png "rand_forest_importance")
-'''
+```
 > table(Test$target, PredictCART)
                PredictCART
                 в двух словах два слова о двумя словами одним словом
@@ -51,12 +51,12 @@ VerbTalk     34.484909    3.742125    34.9384720    53.818682            64.1963
   два слова о              10           0             0           19
   двумя словами             9           0            17            2
   одним словом              0           0             1           29
- '''
+```
 ![tree](https://raw.githubusercontent.com/SoDipole/cxg-InTwoWords/master/tree.png "tree")
 
 * логистическая регрессия (привести примеры нескольких моделей, закончив оптимальной, в которой остаются только значимые факторы)  
 Все переменные:
-'''
+```
 Call:
 glm(formula = target ~ Literal + Question + Negation + VerbTalk, 
     family = binomial, data = df)
@@ -82,9 +82,9 @@ Residual deviance: 345.36  on 382  degrees of freedom
 AIC: 355.36
 
 Number of Fisher Scoring iterations: 5
-'''
+```
 Только Literal и VerbTalk:
-'''
+```
 Call:
 glm(formula = target ~ Literal + VerbTalk, family = binomial, 
     data = df)
@@ -108,7 +108,7 @@ Residual deviance: 357.37  on 384  degrees of freedom
 AIC: 363.37
 
 Number of Fisher Scoring iterations: 5
-'''
+```
 
 ## Содержательный лингвистический анализ результатов статистического анализа
 Без содержательного анализа факторов выбора конструкции (взаимодействия выделенных вами переменных, их значимости/важности) проект не будет считаться выполненным.   
