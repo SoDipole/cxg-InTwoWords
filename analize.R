@@ -40,13 +40,16 @@ table(Test$target, PredictCART)
 
 #логистическая регрессия-------------------------------------------
 
-fit_logit <- glm(target ~ Literal+Question+Negation+VerbTalk, data=df, family=binomial)
+#одним словом vs. два слова о
+
+rm(df_subset)
+df_subset <- read.csv("C:/Neat/Study/конструкции/data_subset.csv", sep=";", encoding="utf-8")
+
+#все переменные
+fit_logit <- glm(target ~ Literal+Question+Negation+VerbTalk, data=df_subset, family=binomial)
 summary(fit_logit)
 
-logit_pred = predict(fit_logit, type='response')
-
-fit_logit_important <- glm(target ~ Literal+VerbTalk, data=df, family=binomial)
+#Literal+VerbTalk
+fit_logit_important <- glm(target ~ Literal+VerbTalk, data=df_subset, family=binomial)
 summary(fit_logit_important)
-
-logit_pred = predict(fit_logit_important, type='response')
 
