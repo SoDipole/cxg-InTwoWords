@@ -34,11 +34,81 @@
 ## Мультифакторный анализ
 
 * дерево решений ( + случайный лес для выявления важности переменных (variable importance))  
-* логистическая регрессия (привести примеры нескольких моделей, закончив оптимальной, в которой остаются только значимые факторы)  
-
+'''
+> importance(fit_forest)
+         в двух словах два слова о двумя словами одним словом MeanDecreaseAccuracy MeanDecreaseGini
+Literal      25.749453    6.263400    48.8484026     4.736283            44.795051        24.730736
+Question      8.187191    3.834931    -0.1053812    -2.928081             4.858301         2.397233
+Negation      8.398397    4.118263     6.6402473    10.678680            13.674868         6.215489
+VerbTalk     34.484909    3.742125    34.9384720    53.818682            64.196396        45.777577
+'''
 ![rand_forest_importance](https://raw.githubusercontent.com/SoDipole/cxg-InTwoWords/master/rand_forest_importance.png "rand_forest_importance")
-
+'''
+> table(Test$target, PredictCART)
+               PredictCART
+                в двух словах два слова о двумя словами одним словом
+  в двух словах            19           0             1            9
+  два слова о              10           0             0           19
+  двумя словами             9           0            17            2
+  одним словом              0           0             1           29
+ '''
 ![tree](https://raw.githubusercontent.com/SoDipole/cxg-InTwoWords/master/tree.png "tree")
+
+* логистическая регрессия (привести примеры нескольких моделей, закончив оптимальной, в которой остаются только значимые факторы)  
+Все переменные:
+'''
+Call:
+glm(formula = target ~ Literal + Question + Negation + VerbTalk, 
+    family = binomial, data = df)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.9750  -0.7147   0.4887   0.4887   2.3152  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   2.0649     0.2334   8.848  < 2e-16 ***
+Literal       2.3485     0.5503   4.268 1.98e-05 ***
+Question     -1.4412     0.7796  -1.849  0.06452 .  
+Negation     -1.3745     0.5036  -2.729  0.00634 ** 
+VerbTalk     -1.8582     0.2975  -6.245 4.24e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 437.97  on 386  degrees of freedom
+Residual deviance: 345.36  on 382  degrees of freedom
+AIC: 355.36
+
+Number of Fisher Scoring iterations: 5
+'''
+Только Literal и VerbTalk:
+'''
+Call:
+glm(formula = target ~ Literal + VerbTalk, family = binomial, 
+    data = df)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-3.0399  -1.1522   0.5036   0.5036   1.2029  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   2.0011     0.2271   8.811  < 2e-16 ***
+Literal       2.6096     0.5444   4.794 1.64e-06 ***
+VerbTalk     -2.0608     0.2826  -7.293 3.04e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 437.97  on 386  degrees of freedom
+Residual deviance: 357.37  on 384  degrees of freedom
+AIC: 363.37
+
+Number of Fisher Scoring iterations: 5
+'''
 
 ## Содержательный лингвистический анализ результатов статистического анализа
 Без содержательного анализа факторов выбора конструкции (взаимодействия выделенных вами переменных, их значимости/важности) проект не будет считаться выполненным.   
