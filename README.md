@@ -1,7 +1,7 @@
 # одним словом | двумя словами | в двух словах | два слова о(б)
 
 ### Материалы
-[Данные](https://docs.google.com/spreadsheets/d/1pV8erjjqK9cju3X6_uyabb314O03z6Jc_bqWG_NFfpU/edit?usp=sharing)  
+[Данные](https://github.com/SoDipole/cxg-InTwoWords/master/data.csv)  
 [Код с комментариями](https://github.com/SoDipole/cxg-InTwoWords/master/analize.R)
 
 ## Рабочая гипотеза
