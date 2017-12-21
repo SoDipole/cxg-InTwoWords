@@ -61,11 +61,12 @@ VerbTalk     34.484909    3.742125    34.9384720    53.818682            64.1963
 ![tree](https://raw.githubusercontent.com/SoDipole/cxg-InTwoWords/master/tree.png "tree")
 
 * логистическая регрессия (привести примеры нескольких моделей, закончив оптимальной, в которой остаются только значимые факторы)  
+"одним словом" vs. "два слова о" <br />
 Все переменные:
 ```
 Call:
 glm(formula = target ~ Literal + Question + Negation + VerbTalk, 
-    family = binomial, data = df)
+    family = binomial, data = df_subset)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
@@ -93,7 +94,7 @@ Number of Fisher Scoring iterations: 5
 ```
 Call:
 glm(formula = target ~ Literal + VerbTalk, family = binomial, 
-    data = df)
+    data = df_subset)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
