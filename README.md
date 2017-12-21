@@ -25,7 +25,7 @@
 В этом разделе располагаются таблицы, графики и обсуждение дистрибуции значений в отдельных переменных и взаимной дистрибуции пар переменных.
 Рекомендуются гистограммы, density plots, боксплоты (или violin plots), метрики корреляции и статистической значимости. Если вы используете метрику хи-квадрат, не забывайте посчитать к ней effect size.
 
-![corrplot](https://raw.githubusercontent.comSoDipole/cxg-InTwoWords/master/corrplot.png "corrplot")
+![corrplot](https://raw.githubusercontent.com/SoDipole/cxg-InTwoWords/master/corrplot.png "corrplot")
 
 ## Мультифакторный анализ
 Здесь рекомендуется использовать один из следующих подходов к моделированию/анализу данных:  
