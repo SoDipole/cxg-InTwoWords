@@ -2,7 +2,7 @@
 
 ### Материалы
 [Данные](https://github.com/SoDipole/cxg-InTwoWords/master/data.csv)  
-[Код с комментариями](https://github.com/SoDipole/cxg-InTwoWords/master/analize.R)
+[Код с комментариями](https://github.com/SoDipole/cxg-InTwoWords/master/analyze.R)
 
 ## Рабочая гипотеза
 
